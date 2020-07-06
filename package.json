@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/scraper/WaifuGenerator.ts"
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -20,5 +20,10 @@
     "@types/cheerio": "^0.22.18",
     "@types/nodemon": "^1.19.0",
     "nodemon": "^2.0.4"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
   }
 }
