@@ -1,6 +1,6 @@
 import axios from "axios"
 import cheerio from "cheerio"
-import {dataWaifu} from "../interface/dataWaifu"
+import {dataWaifu} from "../interface/interface"
 import {url} from "../const"
 
 const AxiosIntance = axios.create()
@@ -35,4 +35,4 @@ const WaifuGenerator = () => {
     })
 }
 
-WaifuGenerator()
+export default WaifuGenerator

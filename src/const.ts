@@ -1,1 +1,1 @@
-export const url:string = "http://jurnalotaku.com/tag/waifu-wednesday/"
+export const url:string = "http://jurnalotaku.com/tag/waifu-wednesday/page/1"
