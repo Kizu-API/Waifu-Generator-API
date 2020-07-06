@@ -1,0 +1,1 @@
+export const url:string = "http://jurnalotaku.com/tag/waifu-wednesday/"
