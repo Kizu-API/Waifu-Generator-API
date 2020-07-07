@@ -1,18 +1,18 @@
 import axios from "axios"
 import cheerio from "cheerio"
+import chalk from "chalk"
 import {dataWaifu} from "../interface/interface"
-import {url} from "../const"
 
 const AxiosIntance = axios.create()
-const WaifuGenerator = () => {
+const scrape: dataWaifu[] = []
+const WaifuGenerator = (url:any) => {
     return new Promise<any>( async (resolve, reject) => {
         await AxiosIntance.get(url)
-         .then((response) => {
+         .then( async (response) => {
             if(response.status == 200){
                 const html = response.data
                 const $ = cheerio.load(html)
                 const articleWaifu: Cheerio = $(".article-wrapper.article-tb.m-tb")
-                const scrape: dataWaifu[] = []
 
                 articleWaifu.each((i, el):void => {
                     const image:string = $(el).find(".article-inner-wrapper > .cover.size-a.has-depth > img").attr("src")
@@ -24,14 +24,21 @@ const WaifuGenerator = () => {
                         name
                     })
                 })
+                const nextUrlPage:string = $(".nextpostslink").attr("href")
 
-                resolve(scrape)
-                console.log(scrape)
+                if(nextUrlPage === undefined) {
+                    return false;
+                }
+
+                console.log(chalk.yellow.bgBlue(`Scraping next url: ${nextUrlPage}`))
+                // console.log(scrape)
+                return await WaifuGenerator(nextUrlPage)
             }
          })
          .catch((err) => {
              reject(err)
          })
+        resolve(scrape)
     })
 }
 
