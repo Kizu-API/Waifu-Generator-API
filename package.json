@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/index.js",
-    "start:server": "nodemon --watch src/**/*.ts --exec ts-node src/api/v1/index.ts",
+    "start:v1": "nodemon --watch src/**/*.ts --exec ts-node src/api/v1/index.ts",
+    "start:v2": "nodemon --watch src/**/*.ts --exec ts-node src/api/v2/index.ts",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts"
   },
   "dependencies": {
