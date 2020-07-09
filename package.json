@@ -6,9 +6,9 @@
   "author": "satya wikananda <satyawikananda456@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node dist/index.js",
-    "start:v1": "nodemon --watch src/**/*.ts --exec ts-node src/api/v1/index.ts",
-    "start:v2": "nodemon --watch src/**/*.ts --exec ts-node src/api/v2/index.ts",
+    "start": "nodemon --watch *.ts --exec ts-node ./index.ts",
+    "start:v1": "nodemon --watch src/**/*.ts --exec ts-node api/v1/index.ts",
+    "start:v2": "nodemon --watch src/**/*.ts --exec ts-node api/v2/index.ts",
     "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "@types/cheerio": "^0.22.18",
     "@types/express": "^4.17.7",
     "@types/nodemon": "^1.19.0",
+    "@vercel/node": "^1.7.1",
     "nodemon": "^2.0.4"
   },
   "nodemonConfig": {
