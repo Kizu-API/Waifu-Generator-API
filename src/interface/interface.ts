@@ -3,3 +3,8 @@ export interface dataWaifu {
     anime: string
     name: string
 }
+
+export interface dataIndex {
+    v1: string
+    v2: string
+}
